@@ -4,7 +4,6 @@ import requests
 from sys import argv
 
 if __name__ == "__main__":
-    txt2 = "\t {}"
     req = "https://jsonplaceholder.typicode.com/users/{}"
     req_all_task = "https://jsonplaceholder.typicode.com/todos"
     task_done = 0
@@ -17,7 +16,9 @@ if __name__ == "__main__":
             task_count += 1
         if i['userId'] == id and i['completed'] is True:
             task_done += 1
-    print(f"Employee {r_users['name']} is done with tasks({task_done}/{task_count}):")
+    EMPLOYEE_NAME = r_users['name']
+    NUMBER_OF_DONE_TASKS = task_done
+    print(f"Employee {EMPLOYEE_NAME} is done with tasks({task_done}/{task_count}):")
     for i in r_todos:
         if i['userId'] == id and i['completed'] is True:
             print(f"\t {i['title']}")
