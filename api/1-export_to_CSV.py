@@ -2,7 +2,6 @@
 """task-1"""
 import requests
 from sys import argv
-import json
 
 if __name__ == "__main__":
     txt = '"{}","{}","{}","{}"\n'
