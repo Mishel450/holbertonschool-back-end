@@ -14,7 +14,7 @@ if __name__ == "__main__":
     r_users = requests.get(req).json()
     r_todos = requests.get(req_all_task).json()
     the_list = []
-    the_list1 = []
+    dict_to_add = {}
     with open("todo_all_employees.json", "w") as file:
         for j in r_users:
             user_id = int(j['id'])
@@ -25,7 +25,6 @@ if __name__ == "__main__":
                         "completed": i["completed"],
                         "username": j['username']
                     })
-            dict_to_add = {str(user_id): the_list}
-            the_list1.append(dict_to_add)
+            dict_to_add[str(user_id)] = the_list
             the_list = []
-        json.dump(the_list1, file)
+        json.dump(dict_to_add, file)
