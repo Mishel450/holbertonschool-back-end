@@ -17,4 +17,5 @@ if __name__ == "__main__":
     with open("{}.csv".format(user_id), "w") as file:
         for i in r_todos:
             if i['userId'] == user_id:
-                file.write(txt.format(user_id, username_task, i['completed'], i['title']))
+                file.write(txt.format(user_id, username_task,
+                                      i['completed'], i['title']))
