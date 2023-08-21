@@ -24,7 +24,7 @@ def task_0(id):
         for i in r_todos:
             if i['userId'] == id and i['completed'] is True:
                 returning_test += txt2.format(i['title'])
-        print(returning_test)
+        return returning_test
 
 if __name__ == "__main__":
     task_0(argv[1])
