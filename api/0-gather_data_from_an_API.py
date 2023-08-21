@@ -3,28 +3,23 @@
 import requests
 from sys import argv
 
-def task_0(id):
-        txt1 = "Employee {} is done with tasks({}/{}):"
-        txt2 = "\n     {}"
-        req = "https://jsonplaceholder.typicode.com/users/{}"
-        req_all_task = "https://jsonplaceholder.typicode.com/todos"
-        task_done = 0
-        task_count = 0
-        returning_test = ""
-        id = int(id)
-        r_users = requests.get(req.format(id)).json()
-        r_todos = requests.get(req_all_task).json()
-        for i in r_todos:
-            if i['userId'] == id:
-                task_count += 1
-            if i['userId'] == id and i['completed'] is True:
-                task_done += 1
-        returning_test += txt1.format(r_users['name'], task_done,
-                        task_count)
-        for i in r_todos:
-            if i['userId'] == id and i['completed'] is True:
-                returning_test += txt2.format(i['title'])
-        return returning_test
-
 if __name__ == "__main__":
-    task_0(argv[1])
+    txt1 = "Employee {} is done with tasks({}/{}):"
+    txt2 = "\t {}"
+    req = "https://jsonplaceholder.typicode.com/users/{}"
+    req_all_task = "https://jsonplaceholder.typicode.com/todos"
+    task_done = 0
+    task_count = 0
+    id = int(argv[1])
+    r_users = requests.get(req.format(id)).json()
+    r_todos = requests.get(req_all_task).json()
+    for i in r_todos:
+        if i['userId'] == id:
+            task_count += 1
+        if i['userId'] == id and i['completed'] is True:
+            task_done += 1
+    print(txt1.format(r_users['name'], task_done,
+                      task_count))
+    for i in r_todos:
+        if i['userId'] == id and i['completed'] is True:
+            print(txt2.format(i['title']))
