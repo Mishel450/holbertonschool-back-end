@@ -23,5 +23,4 @@ if __name__ == "__main__":
                     "completed": i["completed"],
                     "username": username_task
                 })
-        
         json.dump({str(user_id): the_list}, file)
