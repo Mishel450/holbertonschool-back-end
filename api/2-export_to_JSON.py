@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """task-2"""
-import requests
 import json
+import requests
 from sys import argv
 
 if __name__ == "__main__":
