@@ -17,7 +17,6 @@ if __name__ == "__main__":
         if i['userId'] == id and i['completed'] is True:
             task_done += 1
     EMPLOYEE_NAME = r_users['name']
-    NUMBER_OF_DONE_TASKS = task_done
     print(f"Employee {EMPLOYEE_NAME} is done with tasks({task_done}/{task_count}):")
     for i in r_todos:
         if i['userId'] == id and i['completed'] is True:
