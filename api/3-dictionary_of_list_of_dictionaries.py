@@ -25,7 +25,7 @@ if __name__ == "__main__":
                         "completed": i["completed"],
                         "username": j['username']
                     })
-            dict_to_add = {str(user_id) : the_list}
+            dict_to_add = {str(user_id): the_list}
             the_list1.append(dict_to_add)
             the_list = []
         json.dump(the_list1, file)
